@@ -1,0 +1,97 @@
+<!-- <div class="form1">
+  <div class="form__box1">
+    <h1 style="margin-left: 125px;">Login Form</h1>
+    <hr />
+
+    <form class="form_11">
+      <div class="form__control1">
+        <label for="uname"class="label_2">User Name</label>
+        <input class="input_1"type="email" id="uname" name="uname"  required="user name is required" placeholder="User Name"/>
+      </div>
+
+      <div class="form__control1">
+        <label for="password"class="label_2">Password</label>
+        <input class="input_1"type="password" id="password" name="password" required="password is required" placeholder="Password" />
+      </div>
+    </form>
+    <div class="button_div1">
+      <a href="/login_submit"><button type="button" class="button">login</button></a>
+      <br>
+      <a href="/signup" class="button">Sign Up</a>
+    </div>
+    <a href="/forget_password" class="a_1">forget password?</a>
+  </div>
+</div> -->
+
+
+<!-- import * as yup from 'yup'; -->
+
+
+
+
+
+<body>
+  <div class="container4">
+    <h1 class="label">User Login</h1>
+    <form class="login_form" action="/login_submit" method="get" name="form" onsubmit="return validated()">
+      <div class="font">Email or Phone</div>
+      <input autocomplete="off" type="text" name="email" placeholder="E-mail">
+      <div id="email_error">Please fill up your Email or Phone</div>
+      <div class="font font2">Password</div>
+      <input type="password" name="password" placeholder="Password">
+      <div id="pass_error">Please fill up your Password(min 6 chracters)</div>
+      <div class="button_div1">
+       <button type="submit">Login</button>
+      </div> 
+      <a href="/signup" class="b">Sign Up</a>
+    </form>
+  </div>
+  <script>
+
+
+
+
+    //Validtion Code For Inputs
+
+    var email = document.forms['form']['email'];
+    var password = document.forms['form']['password'];
+
+    var email_error = document.getElementById('email_error');
+    var pass_error = document.getElementById('pass_error');
+
+    email.addEventListener('textInput', email_Verify);
+    password.addEventListener('textInput', pass_Verify);
+
+    function validated() {
+      if (email.value.length < 9) {
+        email.style.border = "1px solid red";
+        email_error.style.display = "block";
+        email.focus();
+        return false;
+      }
+      if (password.value.length < 6) {
+        password.style.border = "1px solid red";
+        pass_error.style.display = "block";
+        password.focus();
+        return false;
+      }
+
+    }
+    function email_Verify() {
+      if (email.value.length >= 8) {
+        email.style.border = "1px solid silver";
+        email_error.style.display = "none";
+        return true;
+      }
+    }
+    function pass_Verify() {
+      if (password.value.length >= 5) {
+        password.style.border = "1px solid silver";
+        pass_error.style.display = "none";
+        return true;
+      }
+    }
+
+
+  </script>
+</body>

@@ -1,0 +1,171 @@
+<style>
+    :root {
+        --success-color: #2ecc71;
+        --error-color: #fff;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    h2 {
+        text-align: center;
+        margin: 0 0 20px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 400;
+    }
+    .form {
+        padding: 15px 30px;
+        margin: 0 auto;
+        width: 30%;
+        height: 85vh;
+        background-color: chocolate;
+    }
+    .form-control {
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+    .form-control label {
+        color: rgb(100, 36, 173);
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-control input {
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+    .form-control input:focus {
+        outline: 0;
+        border-color: #777;
+    }
+    .form-control.success input {
+
+        border-color: var(--success-color);
+
+    }
+    .form-control.error input {
+        border-color: var(--error-color);
+    }
+    .form-control small {
+        color: var(--error-color);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        visibility: hidden;
+    }
+    .form-control.error small {
+
+        visibility: visible;
+    }
+    .form button {
+        cursor: pointer;
+        background-color: #3498db;
+        border: 2px sold #3498db;
+        border-radius: 4px;
+        color: #fff;
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .sd{
+        display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    }
+</style>
+<body>
+        <form id="form" class="form" autocomplete="off" action="/signUp_submit" method="post">
+            <h2>Register with us</h2>
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" name ="username" placeholder="Enter username">
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" name ="email"placeholder="Enter email">
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password">
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password2">Confirm Passsword</label>
+                <input type="password" id="password2" name="password2" placeholder="Enter password again">
+                <small>Error message</small>
+            </div>
+           <button type="submit">Submit</button>
+            <a  class="sd" href="/login">login</a>
+        </form>
+    <!-- <script>
+        const form = document.getElementById('form');
+        const username = document.getElementById('username');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const password2 = document.getElementById('password2');
+        //Show input error message
+        function showError(input, message) {
+            const formControl = input.parentElement;
+            formControl.className = 'form-control error';
+            const small = formControl.querySelector('small');
+            small.innerText = message;
+        }
+        function showSuccess(input) {
+            const formControl = input.parentElement;
+            formControl.className = 'form-control success';
+        }
+        //Email
+        function isValidEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        function isValidpassword2(are){
+            // const are = password.value;
+            if (are === password) return are;
+            
+        }
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (username.value === '') {
+                showError(username, 'Username is required');
+            }
+            else {
+                showSuccess(username);
+            }
+            if (email.value === '') {
+                showError(email, 'Email is required');
+            } else if (!isValidEmail(email.value)) {
+                showError(email, 'Email is not valid');
+            }
+            else {
+                showSuccess(email);
+            }
+            if (password.value === '') {
+                showError(password, 'Password is required');
+            }
+            else {
+                showSuccess(password);
+            }
+            if(password2.value === ''){
+                showError(password2,'confirm password required')
+            }
+            else if(password2.value !== password.value){
+                showError(password2, 'password should match');
+            }
+            else{
+                showSuccess(password2);
+            }
+        });
+
+
+
+        // console.log(username,email,password,password2);
+    </script> -->
+</body>
+</html>
